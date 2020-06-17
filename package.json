@@ -1,0 +1,16 @@
+{
+  "name": "@itsravenous/google-sheets-private",
+  "private": false,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "googleapis": "^52.1.0"
+  },
+  "repository": "https://github.com/itsravenous/google-sheets-private/"
+}
