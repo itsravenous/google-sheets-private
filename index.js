@@ -51,6 +51,13 @@ function authAppendToSheet({ auth, sheetId, sheetName, data }) {
   });
 }
 
+function authGetSpreadSheetRaw({ auth, sheetId }) {
+  const sheets = google.sheets({ version: "v4", auth });
+  return sheets.spreadsheets.get({
+    spreadsheetId: sheetId
+  });
+}
+
 const fetchSheet = async ({
   serviceAccount,
   credentials,
@@ -59,6 +66,11 @@ const fetchSheet = async ({
 }) => {
   const auth = await authorize({ serviceAccount, credentials });
   return authFetchSheet({ auth, sheetId, sheetName });
+};
+
+const getSpreadSheetRaw = async ({ serviceAccount, credentials, sheetId }) => {
+  const auth = await authorize({ serviceAccount, credentials });
+  return authGetSpreadSheetRaw({ auth, sheetId });
 };
 
 const appendToSheet = async ({
@@ -73,4 +85,5 @@ const appendToSheet = async ({
 };
 
 exports.fetchSheet = fetchSheet;
+exports.getSpreadSheetRaw = getSpreadSheetRaw;
 exports.appendToSheet = appendToSheet;
